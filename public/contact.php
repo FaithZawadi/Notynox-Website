@@ -10,7 +10,7 @@
  */
 
 $TO      = 'notynox.engineering@gmail.com';
-$SUBJECT = 'New enquiry from notynox.co.ke';
+$SUBJECT = 'New enquiry from notynox.com';
 
 function back($status) {
     header('Location: /contact/?' . $status . '=1');
@@ -59,7 +59,7 @@ $body .= "Location:  $location\n\n";
 $body .= "Message:\n$message\n";
 
 // Headers — send from a same-domain address, reply-to the enquirer
-$domain  = isset($_SERVER['HTTP_HOST']) ? preg_replace('/^www\./', '', $_SERVER['HTTP_HOST']) : 'notynox.co.ke';
+$domain  = isset($_SERVER['HTTP_HOST']) ? preg_replace('/^www\./', '', $_SERVER['HTTP_HOST']) : 'notynox.com';
 $headers  = 'From: Notynox Website <no-reply@' . $domain . ">\r\n";
 $headers .= 'Reply-To: ' . $email . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";

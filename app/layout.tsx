@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Notynox Engineering Limited" }],
   creator: "Notynox Engineering Limited",
   publisher: "Notynox Engineering Limited",
-  metadataBase: new URL("https://notynox.co.ke"),
+  metadataBase: new URL("https://notynox.com"),
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://notynox.co.ke",
+    url: "https://notynox.com",
     siteName: "Notynox Engineering Limited",
     title: "Notynox Engineering Limited | Civil Engineering & Construction Kenya",
     description:
