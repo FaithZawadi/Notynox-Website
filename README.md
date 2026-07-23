@@ -86,11 +86,15 @@ notynox/
 
 ## 🎨 Design System
 
+A clean, spacious, modern agency aesthetic: generous whitespace, rounded cards with soft shadows, pill buttons, eyebrow labels, decorative orange "blobs" and dotted patterns, an animated stat counter, a client marquee, and testimonial cards. Default theme is **light**; a dark toggle is available.
+
+Reusable utility classes live in `app/globals.css`: `container-x`, `neat-card`, `eyebrow`, `icon-tile`, `blob`, `dots-bg`, `marquee`, `text-gradient-amber`, plus the `btn-primary` / `btn-outline` buttons. The count-up numbers use `components/Counter.tsx`.
+
 ### Colours
 - **Primary accent**: Orange (#ea580c / #f97316)
-- **Dark background**: #0a0e17
-- **Light background**: #fafaf8
-- CSS variables for seamless dark/light mode switching
+- **Light background**: #ffffff / #f6f8fb (default)
+- **Dark background**: #0a0e17 (dark mode + section heroes)
+- CSS variables + design tokens (`--radius`, `--shadow-card`, `--shadow-elevated`, `--shadow-orange`) drive seamless dark/light switching
 
 ### Typography
 - **Headings**: Playfair Display (serif, bold/black)
@@ -101,7 +105,7 @@ notynox/
 
 | Page | Route | Description |
 |------|-------|-------------|
-| Home | `/` | Photographic hero, services, about strip, why us, sectors, fleet, CTA |
+| Home | `/` | Framed hero, client strip, services, about+features, animated stat band, process steps, sectors, testimonials, CTA |
 | About | `/about` | Company story, mission/vision, values, team, timeline |
 | Services | `/services` | All 6 service areas with photos + detailed descriptions |
 | Projects | `/projects` | Project case studies with category photos |

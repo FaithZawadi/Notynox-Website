@@ -10,17 +10,24 @@
   --font-mono: 'DM Mono', monospace;
 
   /* Light mode */
-  --bg-primary: #fafaf8;
-  --bg-secondary: #f3f0eb;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fb;
   --bg-card: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --text-primary: #0f1729;
+  --text-secondary: #4b5563;
   --text-muted: #94a3b8;
-  --border: #e2e8f0;
+  --border: #eceff3;
   --accent: #ea580c;
   --accent-light: #fed7aa;
   --accent-glow: rgba(234, 88, 12, 0.15);
   --hero-overlay: rgba(15, 23, 42, 0.72);
+
+  /* Neat design tokens */
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+  --shadow-elevated: 0 12px 40px rgba(16, 24, 40, 0.12);
+  --shadow-orange: 0 12px 30px rgba(234, 88, 12, 0.28);
 }
 
 .dark {
@@ -35,6 +42,10 @@
   --accent-light: #431407;
   --accent-glow: rgba(249, 115, 22, 0.2);
   --hero-overlay: rgba(10, 14, 23, 0.8);
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-elevated: 0 16px 50px rgba(0, 0, 0, 0.5);
+  --shadow-orange: 0 12px 30px rgba(249, 115, 22, 0.3);
 }
 
 * {
@@ -195,10 +206,10 @@ body::before {
 
 /* Button styles */
 .btn-primary {
-  @apply inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-600/25 active:scale-95;
+  @apply inline-flex items-center gap-2 px-7 py-3.5 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-[var(--shadow-orange)] hover:-translate-y-0.5 active:scale-95;
 }
 .btn-outline {
-  @apply inline-flex items-center gap-2 px-6 py-3 border border-current text-current hover:bg-orange-600 hover:border-orange-600 hover:text-white font-semibold rounded-sm transition-all duration-200;
+  @apply inline-flex items-center gap-2 px-7 py-3.5 border border-current text-current hover:bg-orange-600 hover:border-orange-600 hover:text-white font-semibold rounded-xl transition-all duration-200;
 }
 
 /* Tag */
@@ -216,4 +227,91 @@ body::before {
   flex: 1;
   height: 1px;
   background: var(--border);
+}
+
+/* ============================================================
+   Neat agency-style utilities
+   ============================================================ */
+
+/* Consistent content container */
+.container-x {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Soft neat card */
+.neat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.neat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(234, 88, 12, 0.35);
+}
+
+/* Eyebrow pill label */
+.eyebrow {
+  @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em];
+  color: var(--accent);
+  background: rgba(234, 88, 12, 0.08);
+  border: 1px solid rgba(234, 88, 12, 0.18);
+}
+
+/* Soft orange icon tile */
+.icon-tile {
+  @apply inline-flex items-center justify-center rounded-2xl;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: var(--accent);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.14), rgba(234, 88, 12, 0.08));
+  border: 1px solid rgba(234, 88, 12, 0.16);
+}
+
+/* Decorative soft blob */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradient text */
+.text-gradient-amber {
+  background: linear-gradient(120deg, #f97316, #ea580c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dotted background pattern */
+.dots-bg {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: rgba(234, 88, 12, 0.14);
+}
+
+/* Client logo marquee */
+.marquee {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Count-up stat number */
+.count-number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1;
 }

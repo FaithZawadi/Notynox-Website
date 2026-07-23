@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Counter from "@/components/Counter";
 import {
   ArrowRight,
-  ChevronDown,
-  Shield,
-  Clock,
-  Award,
-  Users,
-  Hammer,
+  HardHat,
   Building2,
   Milestone,
   Waves,
   Wrench,
-  HardHat,
   CheckCircle2,
   Phone,
+  Star,
+  PhoneCall,
+  PencilRuler,
+  Hammer,
+  ClipboardCheck,
+  Quote,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -24,10 +25,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "10+", label: "Years of Excellence", suffix: "" },
-  { value: "50+", label: "Projects Completed", suffix: "" },
-  { value: "100%", label: "Safety Commitment", suffix: "" },
-  { value: "5", label: "Core Service Areas", suffix: "+" },
+  { end: 10, suffix: "+", label: "Years of Excellence" },
+  { end: 50, suffix: "+", label: "Projects Completed" },
+  { end: 100, suffix: "%", label: "Safety Commitment" },
+  { end: 12, suffix: "+", label: "Equipment Classes" },
 ];
 
 const services = [
@@ -35,7 +36,7 @@ const services = [
     icon: Building2,
     title: "Civil & Structural Engineering",
     description:
-      "Reinforced concrete works, structural steel, bridges, dams, culverts, and large-scale infrastructure — built with precision to withstand the test of time.",
+      "Reinforced concrete works, structural steel, bridges, dams, culverts and large-scale infrastructure — built to withstand the test of time.",
     href: "/services#civil",
     tag: "Core Service",
     img: "/images/service-civil.jpg",
@@ -44,7 +45,7 @@ const services = [
     icon: Milestone,
     title: "Road Works & Infrastructure",
     description:
-      "Highway construction, asphalt paving, earthworks, grading, aggregate production, and road rehabilitation across Kenya's diverse terrain.",
+      "Highway construction, asphalt paving, earthworks, grading, aggregate production and road rehabilitation across Kenya's diverse terrain.",
     href: "/services#roads",
     tag: "Core Service",
     img: "/images/service-roads.jpg",
@@ -53,7 +54,7 @@ const services = [
     icon: Hammer,
     title: "Building Construction",
     description:
-      "Commercial offices, warehouses, industrial facilities, institutional buildings, and residential housing — delivered on time and within budget.",
+      "Commercial offices, warehouses, industrial facilities, institutional buildings and residential housing — delivered on time and on budget.",
     href: "/services#building",
     tag: "Core Service",
     img: "/images/service-building.jpg",
@@ -62,7 +63,7 @@ const services = [
     icon: Waves,
     title: "Water & Plumbing Engineering",
     description:
-      "Sewer systems, water reticulation, tank installations, rainwater harvesting, fire service installations, and leak detection solutions.",
+      "Sewer systems, water reticulation, tank installations, rainwater harvesting, fire service installations and leak detection solutions.",
     href: "/services#water",
     tag: "Specialist",
     img: "/images/service-water.jpg",
@@ -71,7 +72,7 @@ const services = [
     icon: Wrench,
     title: "Scaffolding Solutions",
     description:
-      "Certified design, erection, inspection, and dismantling. Access, hanging, and birdcage scaffolds with strict HSE compliance at every level.",
+      "Certified design, erection, inspection and dismantling. Access, hanging and birdcage scaffolds with strict HSE compliance at every level.",
     href: "/services#scaffolding",
     tag: "Specialist",
     img: "/images/service-scaffolding.jpg",
@@ -80,10 +81,46 @@ const services = [
     icon: HardHat,
     title: "Heavy Equipment Hire",
     description:
-      "Excavators, dozers, graders, rollers, bitumen distributors, crushing units, and hauling trucks available for hire across East Africa.",
+      "Excavators, dozers, graders, rollers, bitumen distributors, crushing units and hauling trucks available for hire across East Africa.",
     href: "/services#equipment",
     tag: "Support Service",
     img: "/images/service-equipment.jpg",
+  },
+];
+
+const whyUs = [
+  "Over a decade of proven experience in Kenya and East Africa",
+  "Strong multidisciplinary technical leadership team",
+  "Substantial in-house heavy construction equipment fleet",
+  "Proven project management and quality assurance systems",
+  "Strict safety compliance with comprehensive HSE programs",
+  "Registered contractor for road works and civil engineering",
+];
+
+const process = [
+  {
+    icon: PhoneCall,
+    step: "01",
+    title: "Consult & Scope",
+    desc: "We listen to your goals, assess the site and define a clear, costed scope of works.",
+  },
+  {
+    icon: PencilRuler,
+    step: "02",
+    title: "Design & Plan",
+    desc: "Our engineers produce compliant designs, programmes and a detailed project plan.",
+  },
+  {
+    icon: Hammer,
+    step: "03",
+    title: "Build & Manage",
+    desc: "Disciplined execution with in-house equipment, supervision and rigorous quality control.",
+  },
+  {
+    icon: ClipboardCheck,
+    step: "04",
+    title: "Commission & Hand Over",
+    desc: "Testing, snagging and commissioning — delivered safely, on schedule and to standard.",
   },
 ];
 
@@ -96,392 +133,348 @@ const sectors = [
   "Residential Estates",
 ];
 
-const values = [
-  { icon: Shield, label: "Integrity", desc: "Honesty, transparency, and ethical responsibility in every engagement." },
-  { icon: Award, label: "Excellence", desc: "Highest standards in workmanship, management, and service delivery." },
-  { icon: HardHat, label: "Safety First", desc: "Comprehensive HSE management — accident prevention is non-negotiable." },
-  { icon: Clock, label: "On-Time Delivery", desc: "Disciplined project execution that respects client timelines and budgets." },
+const testimonials = [
+  {
+    quote:
+      "Notynox delivered our institutional facility ahead of schedule and to an exceptional standard. Their site management and safety culture were outstanding.",
+    name: "James Mwangi",
+    role: "Project Director, Institutional Client",
+    initials: "JM",
+  },
+  {
+    quote:
+      "From earthworks to final surfacing, the road rehabilitation was handled professionally. In-house equipment kept everything on programme.",
+    name: "Aisha Noor",
+    role: "County Infrastructure Lead",
+    initials: "AN",
+  },
+  {
+    quote:
+      "Reliable, transparent and technically strong. Notynox is now our go-to partner for reinforced concrete and structural works.",
+    name: "Peter Otieno",
+    role: "Developer, Commercial Real Estate",
+    initials: "PO",
+  },
 ];
 
-const whyUs = [
-  "Over a decade of proven industry experience in Kenya and East Africa",
-  "Strong multidisciplinary technical leadership team",
-  "Substantial in-house heavy construction equipment fleet",
-  "Proven project management systems and quality assurance processes",
-  "Strict safety compliance with comprehensive HSE programs",
-  "Registered contractor for road works and civil engineering in Kenya",
-  "Track record across public sector and private sector projects",
-  "Environmental responsibility embedded in all operations",
-];
+const clients = ["KENHA", "KURA", "KeRRA", "NCA", "WASREB", "EPRA"];
 
 export default function Home() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0a0e17]">
-        {/* Photographic background */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/hero-construction.jpg"
-            alt="Notynox Engineering construction site"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17]/95 via-[#0a0e17]/85 to-[#0a0e17]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-[#0a0e17]/40" />
-        </div>
-        {/* Atmospheric background */}
-        <div className="absolute inset-0">
-          {/* Grid overlay */}
-          <div
-            className="absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
-          {/* Gradient orbs */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-orange-400/6 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/4 rounded-full blur-3xl" />
-        </div>
+      {/* ─────────────────────────── HERO ─────────────────────────── */}
+      <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+        <div className="blob bg-orange-500/20 w-[32rem] h-[32rem] -top-40 -right-40" />
+        <div className="blob bg-orange-400/10 w-[28rem] h-[28rem] top-40 -left-40" />
+        <div className="absolute inset-0 dots-bg opacity-60" />
 
-        {/* Decorative lines */}
-        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-600/30 to-transparent" />
-        <div className="absolute left-16 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-600/10 to-transparent hidden lg:block" />
-        <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-600/20 to-transparent" />
-
-        <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 lg:pt-24 w-full">
-          {/* Label */}
-          <div className="flex items-center gap-3 mb-6 animate-fade-in stagger-1 opacity-0">
-            <div className="w-8 h-px bg-orange-500" />
-            <span className="section-label text-orange-400">
+        <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center pt-16 pb-20 lg:pt-24 lg:pb-28">
+          {/* Left */}
+          <div>
+            <span className="eyebrow mb-6">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
               Est. 2013 · Nairobi, Kenya
             </span>
-            <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-display font-black text-white leading-[0.95] mb-8">
-            <span className="block text-5xl sm:text-6xl lg:text-8xl xl:text-9xl animate-fade-up stagger-2 opacity-0">
-              Building the
-            </span>
-            <span className="block text-5xl sm:text-6xl lg:text-8xl xl:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 animate-fade-up stagger-3 opacity-0">
-              Unimaginable.
-            </span>
-            <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-slate-400 animate-fade-up stagger-4 opacity-0 mt-2">
+            <h1 className="font-display font-black text-[var(--text-primary)] leading-[1.02] text-5xl md:text-6xl xl:text-7xl mb-6">
+              Building the{" "}
+              <span className="text-gradient-amber">Unimaginable.</span>
+              <br />
               Engineering the Future.
-            </span>
-          </h1>
-
-          {/* Description */}
-          <p className="max-w-xl text-slate-400 text-lg leading-relaxed mb-10 animate-fade-up stagger-5 opacity-0">
-            East Africa's trusted civil engineering and construction partner.
-            From roads and bridges to high-rise structures and water systems —
-            we build infrastructure that drives progress and stands for generations.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4 mb-16 animate-fade-up stagger-6 opacity-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-sm transition-all duration-200 hover:shadow-2xl hover:shadow-orange-600/30 text-base"
-            >
-              Get a Free Quote <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-slate-600 hover:border-orange-500 text-slate-300 hover:text-orange-400 font-semibold rounded-sm transition-all duration-200 text-base"
-            >
-              View Our Work
-            </Link>
+            </h1>
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-xl mb-8">
+              East Africa's trusted civil engineering and construction partner.
+              From roads and bridges to high-rise structures and water systems —
+              we build infrastructure that drives progress and stands for generations.
+            </p>
+            <div className="flex flex-wrap gap-4 mb-9">
+              <Link href="/contact" className="btn-primary">
+                Get a Free Quote <ArrowRight size={17} />
+              </Link>
+              <Link
+                href="/projects"
+                className="btn-outline text-[var(--text-primary)] border-[var(--border)] hover:border-orange-600"
+              >
+                View Our Work
+              </Link>
+            </div>
+            {/* Trust row */}
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex items-center gap-2">
+                <div className="flex text-orange-500">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" />
+                  ))}
+                </div>
+                <span className="text-sm text-[var(--text-secondary)] font-medium">
+                  Trusted delivery record
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)] font-medium">
+                <CheckCircle2 size={16} className="text-orange-500" />
+                Registered NCA Contractor
+              </div>
+            </div>
           </div>
 
-          {/* Stats Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-slate-800 animate-fade-in stagger-6 opacity-0">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="stat-number text-3xl lg:text-4xl font-black">
-                  {stat.value}
+          {/* Right — framed photo with floating stat */}
+          <div className="relative">
+            <div className="blob bg-orange-500/25 w-72 h-72 -bottom-10 -right-6" />
+            <div className="relative rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-elevated)] aspect-[4/5] sm:aspect-[5/5]">
+              <img
+                src="/images/hero-construction.jpg"
+                alt="Notynox Engineering construction site"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating experience badge */}
+            <div className="absolute -top-5 -left-5 bg-orange-600 text-white rounded-2xl px-5 py-4 shadow-[var(--shadow-orange)] hidden sm:block">
+              <div className="font-display font-black text-3xl leading-none">10+</div>
+              <div className="text-[11px] font-mono uppercase tracking-wider opacity-85 mt-1">
+                Years Experience
+              </div>
+            </div>
+
+            {/* Floating stat card */}
+            <div className="absolute -bottom-6 -left-6 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-4 shadow-[var(--shadow-elevated)] hidden sm:flex items-center gap-3">
+              <div className="icon-tile !w-11 !h-11 !rounded-xl">
+                <HardHat size={18} />
+              </div>
+              <div>
+                <div className="font-display font-black text-xl text-[var(--text-primary)] leading-none">
+                  50+
                 </div>
-                <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mt-1">
-                  {stat.label}
+                <div className="text-xs text-[var(--text-muted)] mt-0.5">
+                  Projects delivered
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
-          <span className="text-[10px] font-mono tracking-[0.2em] uppercase">Scroll</span>
-          <ChevronDown size={16} className="animate-bounce" />
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
-      <section className="py-24 bg-[var(--bg-primary)] relative overflow-hidden" id="services">
-        <div className="absolute inset-0 grid-bg opacity-40" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <div className="mb-14">
-            <div className="section-label mb-3">What We Do</div>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] max-w-lg leading-tight">
-                Comprehensive Engineering{" "}
-                <span className="text-orange-500">Services</span>
-              </h2>
-              <p className="max-w-sm text-[var(--text-secondary)] text-sm leading-relaxed">
-                From ground-breaking to commissioning, we deliver end-to-end
-                engineering and construction solutions tailored to your project
-                requirements.
-              </p>
-            </div>
-            <div className="accent-line mt-6" />
+      {/* ─────────────────────── CLIENT / TRUST STRIP ─────────────────────── */}
+      <section className="py-10 bg-[var(--bg-secondary)] border-y border-[var(--border)] overflow-hidden">
+        <div className="container-x">
+          <p className="text-center text-xs font-mono uppercase tracking-[0.25em] text-[var(--text-muted)] mb-6">
+            Aligned with Kenya's leading infrastructure authorities
+          </p>
+        </div>
+        <div className="relative">
+          <div className="marquee">
+            {[...clients, ...clients].map((c, i) => (
+              <span
+                key={i}
+                className="font-display font-black text-2xl md:text-3xl text-[var(--text-muted)]/70 whitespace-nowrap select-none"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────── SERVICES ─────────────────────────── */}
+      <section className="py-24 bg-[var(--bg-primary)]" id="services">
+        <div className="container-x">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="eyebrow mb-4">What We Do</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-4">
+              Comprehensive engineering{" "}
+              <span className="text-gradient-amber">services</span>
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              From ground-breaking to commissioning, we deliver end-to-end
+              engineering and construction solutions tailored to your project.
+            </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((svc, i) => {
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {services.map((svc) => {
               const Icon = svc.icon;
               return (
                 <Link
                   key={svc.title}
                   href={svc.href}
-                  className="group card-hover relative bg-[var(--bg-card)] border border-[var(--border)] flex flex-col rounded-sm overflow-hidden"
-                  style={{ animationDelay: `${i * 0.08}s` }}
+                  className="neat-card group flex flex-col overflow-hidden"
                 >
-                  {/* Photo header */}
-                  <div className="relative aspect-[5/3] overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={svc.img}
                       alt={svc.title}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <span className="absolute top-3 right-3 tag text-[10px] bg-black/40 backdrop-blur text-orange-300 border-orange-400/30">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <span className="absolute top-4 left-4 inline-flex px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-orange-600">
                       {svc.tag}
                     </span>
-                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-orange-600 flex items-center justify-center rounded-sm shadow-lg">
-                      <Icon size={18} className="text-white" />
-                    </div>
                   </div>
-
                   <div className="p-7 flex flex-col flex-1">
-                    <h3 className="font-display font-semibold text-lg text-[var(--text-primary)] mb-3 group-hover:text-orange-500 transition-colors leading-snug">
+                    <div className="icon-tile mb-5 -mt-12 relative bg-[var(--bg-card)] shadow-[var(--shadow-card)]">
+                      <Icon size={22} />
+                    </div>
+                    <h3 className="font-display font-bold text-xl text-[var(--text-primary)] mb-3 group-hover:text-orange-600 transition-colors">
                       {svc.title}
                     </h3>
                     <p className="text-sm text-[var(--text-secondary)] leading-relaxed flex-1">
                       {svc.description}
                     </p>
-
-                    <div className="flex items-center gap-1.5 mt-5 text-orange-500 text-xs font-semibold group-hover:gap-3 transition-all">
-                      Learn more <ArrowRight size={12} />
-                    </div>
+                    <span className="inline-flex items-center gap-1.5 mt-5 text-orange-600 text-sm font-semibold group-hover:gap-3 transition-all">
+                      Learn more <ArrowRight size={14} />
+                    </span>
                   </div>
                 </Link>
               );
             })}
           </div>
-
-          <div className="mt-10 flex justify-center">
-            <Link href="/services" className="btn-outline text-[var(--text-primary)] border-[var(--border)] hover:border-orange-600">
-              View All Services <ArrowRight size={15} />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── ABOUT STRIP ── */}
+      {/* ─────────────────────── ABOUT / WHY US ─────────────────────── */}
       <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(234,88,12,0.1) 20px, rgba(234,88,12,0.1) 21px)`
-          }} />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left */}
-            <div>
-              <div className="section-label mb-3">Who We Are</div>
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] mb-6 leading-tight">
-                A Decade of Building{" "}
-                <span className="text-orange-500">East Africa's Future</span>
-              </h2>
-              <div className="accent-line mb-6" />
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-                Notynox Engineering Limited was incorporated in September 2013 in Nairobi, Kenya. 
-                What began as a focused civil engineering practice has evolved into a full-spectrum 
-                construction and infrastructure company serving clients across Kenya and East Africa.
-              </p>
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
-                Our multidisciplinary leadership team — comprising civil engineers, architects, 
-                project managers, safety officers, and financial experts — enables us to manage 
-                projects holistically from feasibility to commissioning.
-              </p>
-
-              {/* Values */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {values.map(({ icon: Icon, label, desc }) => (
-                  <div
-                    key={label}
-                    className="flex items-start gap-3 p-4 bg-[var(--bg-card)] border border-[var(--border)] rounded-sm hover:border-orange-500/40 transition-colors"
-                  >
-                    <div className="w-8 h-8 bg-orange-600/10 flex items-center justify-center flex-shrink-0 rounded-sm">
-                      <Icon size={14} className="text-orange-500" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">
-                        {label}
-                      </div>
-                      <div className="text-xs text-[var(--text-muted)] leading-relaxed">{desc}</div>
-                    </div>
-                  </div>
-                ))}
+        <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
+          {/* Image */}
+          <div className="relative">
+            <div className="blob bg-orange-500/20 w-72 h-72 -top-8 -left-8" />
+            <div className="relative rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-elevated)] aspect-[4/3]">
+              <img
+                src="/images/about-team.jpg"
+                alt="Notynox Engineering team on site"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl px-6 py-5 shadow-[var(--shadow-elevated)] hidden sm:block">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)]">
+                  Since 2013
+                </span>
               </div>
-
-              <div className="mt-8">
-                <Link href="/about" className="btn-primary">
-                  Our Full Story <ArrowRight size={15} />
-                </Link>
+              <div className="font-display font-black text-2xl text-[var(--text-primary)]">
+                Registered Contractor
               </div>
             </div>
+          </div>
 
-            {/* Right - Visual */}
-            <div className="relative">
-              {/* Main box */}
-              <div className="relative bg-[#0a0e17] rounded-sm overflow-hidden aspect-[4/3]">
-                <img
-                  src="/images/about-team.jpg"
-                  alt="Notynox Engineering team on site"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-[#0a0e17]/30 to-transparent" />
-                {/* Corner decorations */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/50" />
-                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-orange-500/50" />
-                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-orange-500/50" />
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/50" />
+          {/* Text */}
+          <div>
+            <span className="eyebrow mb-4">Who We Are</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-5">
+              A decade of building{" "}
+              <span className="text-gradient-amber">East Africa's future</span>
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
+              Notynox Engineering Limited was incorporated in September 2013 in
+              Nairobi, Kenya. What began as a focused civil engineering practice
+              has grown into a full-spectrum construction and infrastructure
+              company serving clients across Kenya and East Africa.
+            </p>
 
-                {/* Stats overlay */}
-                <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-3">
-                  {[
-                    { v: "2013", l: "Founded" },
-                    { v: "50+", l: "Projects" },
-                    { v: "KE", l: "& East Africa" },
-                  ].map(({ v, l }) => (
-                    <div key={l} className="bg-slate-900/80 backdrop-blur border border-slate-700/50 p-3 text-center rounded-sm">
-                      <div className="stat-number text-xl font-black">{v}</div>
-                      <div className="text-[10px] text-slate-500 font-mono uppercase tracking-wider mt-0.5">
-                        {l}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 bg-orange-600 text-white p-4 rounded-sm shadow-xl shadow-orange-600/30">
-                <div className="font-display font-black text-3xl leading-none">10+</div>
-                <div className="text-xs font-mono uppercase tracking-wider mt-1 opacity-80">
-                  Years Experience
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-[var(--bg-card)] border border-[var(--border)] p-4 rounded-sm shadow-xl">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">
-                    Registered Contractor
+            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+              {whyUs.map((item) => (
+                <div key={item} className="flex items-start gap-2.5">
+                  <CheckCircle2
+                    size={18}
+                    className="text-orange-500 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-sm text-[var(--text-secondary)] leading-snug">
+                    {item}
                   </span>
                 </div>
-                <div className="text-xs text-[var(--text-muted)] mt-1">
-                  Roads · Civil Works · Structures
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY NOTYNOX ── */}
-      <section className="py-24 bg-[var(--bg-primary)] relative overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-            {/* Left Text */}
-            <div className="lg:col-span-2">
-              <div className="section-label mb-3">Why Choose Us</div>
-              <h2 className="font-display font-bold text-4xl text-[var(--text-primary)] mb-5 leading-tight">
-                Your Trusted{" "}
-                <span className="text-orange-500">Engineering Partner</span>
-              </h2>
-              <div className="accent-line mb-5" />
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
-                Choosing Notynox Engineering means partnering with a company that 
-                values professionalism, accountability, and long-term relationships. 
-                We don't just complete projects — we build infrastructure that creates 
-                lasting impact.
-              </p>
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
-                Our strength lies in our people, our processes, and our in-house 
-                equipment capability — enabling us to deliver quality without 
-                compromise on every engagement.
-              </p>
-              <Link href="/about" className="btn-primary">
-                Learn More <ArrowRight size={15} />
-              </Link>
+              ))}
             </div>
 
-            {/* Right Checklist */}
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {whyUs.map((item, i) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-3 p-4 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-sm hover:border-orange-500/40 group transition-colors"
-                    style={{ animationDelay: `${i * 0.05}s` }}
-                  >
-                    <CheckCircle2
-                      size={16}
-                      className="text-orange-500 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
-                    />
-                    <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTORS ── */}
-      <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5">
-            <div className="section-label mb-3">Our Sectors</div>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-5">
-              Solutions across{" "}
-              <span className="text-orange-500">every industry</span>
-            </h2>
-            <div className="accent-line mb-6" />
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
-              From transport and highways to water and sanitation, commercial developments
-              to public infrastructure — our experience spans the full breadth of East
-              Africa's growth sectors.
-            </p>
-            <Link href="/contact" className="btn-primary">
-              Discuss Your Sector <ArrowRight size={15} />
+            <Link href="/about" className="btn-primary">
+              Our Full Story <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        </div>
+      </section>
+
+      {/* ─────────────────────────── STATS BAND ─────────────────────────── */}
+      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-orange-600 to-orange-500">
+        <div className="absolute inset-0 dots-bg opacity-20 text-white" />
+        <div className="container-x relative grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center text-white">
+              <Counter
+                end={s.end}
+                suffix={s.suffix}
+                className="count-number text-4xl md:text-5xl"
+              />
+              <div className="text-sm text-white/85 mt-2 font-medium">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─────────────────────────── PROCESS ─────────────────────────── */}
+      <section className="py-24 bg-[var(--bg-primary)]">
+        <div className="container-x">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="eyebrow mb-4">How We Work</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-4">
+              A clear path from{" "}
+              <span className="text-gradient-amber">concept to completion</span>
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              A disciplined, transparent process that keeps every project safe,
+              on schedule and on budget.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            {process.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div key={p.step} className="neat-card p-7 relative">
+                  <span className="absolute top-5 right-6 font-display font-black text-5xl text-orange-500/10">
+                    {p.step}
+                  </span>
+                  <div className="icon-tile mb-5">
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-[var(--text-primary)] mb-2">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                    {p.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────── SECTORS ─────────────────────────── */}
+      <section className="py-24 bg-[var(--bg-secondary)]">
+        <div className="container-x grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5">
+            <span className="eyebrow mb-4">Our Sectors</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-5">
+              Solutions across{" "}
+              <span className="text-gradient-amber">every industry</span>
+            </h2>
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
+              From transport and highways to water and sanitation, commercial
+              developments to public infrastructure — our experience spans the
+              full breadth of East Africa's growth sectors.
+            </p>
+            <Link href="/contact" className="btn-primary">
+              Discuss Your Sector <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
             {sectors.map((sector, i) => (
               <div
                 key={sector}
-                className="flex items-center gap-4 p-5 bg-[var(--bg-card)] border border-[var(--border)] rounded-sm hover:border-orange-500/40 transition-colors"
+                className="neat-card flex items-center gap-4 p-5"
               >
                 <span className="font-display font-black text-3xl text-orange-500/80 leading-none">
                   0{i + 1}
@@ -495,96 +488,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── EQUIPMENT FLEET ── */}
-      <section className="py-20 bg-[#0a0e17] relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/5 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <div className="section-label mb-3 text-orange-400">Our Fleet</div>
-            <h2 className="font-display font-bold text-4xl text-white mb-4">
-              Heavy Machinery <span className="text-orange-500">Capability</span>
+      {/* ─────────────────────────── TESTIMONIALS ─────────────────────────── */}
+      <section className="py-24 bg-[var(--bg-primary)]">
+        <div className="container-x">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="eyebrow mb-4">Client Voices</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight">
+              Trusted by clients who{" "}
+              <span className="text-gradient-amber">build big</span>
             </h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-              Our substantial in-house fleet means we maintain full control over 
-              timelines, quality, and efficiency — reducing dependency on subcontractors 
-              and external hire costs.
-            </p>
           </div>
 
-          <div className="relative mb-8 rounded-sm overflow-hidden aspect-[16/6]">
-            <img
-              src="/images/service-equipment.jpg"
-              alt="Notynox Engineering heavy equipment fleet"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/40 to-transparent" />
-            <div className="absolute bottom-4 left-6 bg-orange-600 text-white px-4 py-2 rounded-sm shadow-lg">
-              <span className="font-display font-black text-2xl leading-none">12+</span>
-              <span className="ml-2 text-xs font-mono uppercase tracking-wider">Machinery Classes</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {[
-              "Excavators",
-              "Bulldozers",
-              "Motor Graders",
-              "Vibratory Rollers",
-              "Bitumen Distributors",
-              "Crushing & Screening Plants",
-              "Hauling Trucks & Tippers",
-              "Water Bowsers",
-              "Concrete Mixers",
-              "Low-Bed Transporters",
-              "Backhoe Loaders",
-              "Compactors",
-            ].map((machine) => (
-              <div
-                key={machine}
-                className="flex items-center gap-3 px-4 py-3 bg-slate-800/50 border border-slate-700/50 hover:border-orange-500/50 hover:bg-orange-600/5 transition-all group rounded-sm"
-              >
-                <div className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0 group-hover:scale-150 transition-transform" />
-                <span className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                  {machine}
-                </span>
+          <div className="grid md:grid-cols-3 gap-7">
+            {testimonials.map((t) => (
+              <div key={t.name} className="neat-card p-8 flex flex-col">
+                <Quote size={30} className="text-orange-500/40 mb-4" />
+                <p className="text-[var(--text-secondary)] leading-relaxed flex-1">
+                  “{t.quote}”
+                </p>
+                <div className="flex items-center gap-3 mt-6 pt-6 border-t border-[var(--border)]">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-white flex items-center justify-center font-display font-bold text-sm">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-[var(--text-primary)] text-sm">
+                      {t.name}
+                    </div>
+                    <div className="text-xs text-[var(--text-muted)]">
+                      {t.role}
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA BANNER ── */}
-      <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-orange-600 to-transparent" />
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <div className="section-label mb-4">Ready to Start?</div>
-          <h2 className="font-display font-black text-5xl md:text-6xl text-[var(--text-primary)] mb-6 leading-tight">
-            Have a Project in{" "}
-            <span className="text-orange-500">Mind?</span>
+      {/* ─────────────────────────── CTA BAND ─────────────────────────── */}
+      <section className="relative py-24 overflow-hidden bg-[#0a0e17]">
+        <img
+          src="/images/service-equipment.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/90 to-[#0a0e17]/60" />
+        <div className="blob bg-orange-500/20 w-96 h-96 -bottom-20 right-10" />
+        <div className="container-x relative max-w-3xl">
+          <span className="eyebrow mb-5">Ready to Start?</span>
+          <h2 className="font-display font-black text-4xl md:text-6xl text-white leading-tight mb-6">
+            Have a project in{" "}
+            <span className="text-gradient-amber">mind?</span>
           </h2>
-          <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Whether you're planning a major road development, a commercial building, 
-            or a water infrastructure project — our team is ready to partner with you 
-            from concept to completion.
+          <p className="text-slate-300 text-lg leading-relaxed mb-9 max-w-2xl">
+            Whether you're planning a major road development, a commercial
+            building or a water infrastructure project — our team is ready to
+            partner with you from concept to completion.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="btn-primary text-base px-8 py-4">
+          <div className="flex flex-wrap gap-4">
+            <Link href="/contact" className="btn-primary">
               Get a Free Consultation <ArrowRight size={16} />
             </Link>
             <a
               href="tel:+254720843234"
-              className="btn-outline text-[var(--text-primary)] border-[var(--border)] text-base px-8 py-4 hover:border-orange-600"
+              className="btn-outline text-white border-white/30 hover:border-orange-600"
             >
               <Phone size={16} /> +254 720 843 234
             </a>

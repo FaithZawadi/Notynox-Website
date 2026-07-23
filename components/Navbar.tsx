@@ -61,10 +61,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="w-9 h-9 bg-orange-600 flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                <span className="text-white font-black text-sm -rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                  N
-                </span>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-[var(--shadow-orange)] group-hover:scale-105 transition-transform duration-300">
+                <span className="text-white font-black text-base">N</span>
               </div>
               <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-orange-400 rounded-full opacity-80" />
             </div>
@@ -113,7 +111,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-600/20"
+              className="hidden md:flex items-center gap-1.5 px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-[var(--shadow-orange)] hover:-translate-y-0.5"
             >
               Get a Quote <ChevronRight size={13} />
             </Link>
