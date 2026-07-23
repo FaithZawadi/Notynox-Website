@@ -126,56 +126,44 @@ const categoryImages: Record<string, string> = {
 export default function Projects() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
-        <img
-          src="/images/service-roads.jpg"
-          alt="Notynox Engineering infrastructure project"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/8 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6">
+      {/* Hero — bright */}
+      <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+        <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
+        <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="absolute inset-0 dots-bg opacity-50" />
+        <div className="container-x relative pt-20 pb-16">
           <div className="max-w-3xl">
-            <div className="section-label mb-4 text-orange-400">Our Portfolio</div>
-            <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
+            <span className="eyebrow mb-5">Our Portfolio</span>
+            <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
               Projects &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Experience
-              </span>
+              <span className="text-gradient-amber">experience</span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-              A portfolio of successfully delivered infrastructure projects across Kenya 
-              and East Africa — demonstrating technical capability, versatility, and 
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl">
+              A portfolio of successfully delivered infrastructure projects across Kenya
+              and East Africa — demonstrating technical capability, versatility, and a
               commitment to quality.
             </p>
           </div>
 
           {/* Quick stats */}
-          <div className="flex flex-wrap gap-6 mt-12 pt-10 border-t border-slate-800">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12">
             {[
               { v: "50+", l: "Projects Completed" },
               { v: "10+", l: "Years Experience" },
               { v: "5", l: "Service Sectors" },
               { v: "KE+", l: "East Africa Region" },
             ].map(({ v, l }) => (
-              <div key={l} className="text-center sm:text-left">
-                <div className="stat-number text-3xl font-black">{v}</div>
-                <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mt-1">{l}</div>
+              <div key={l} className="neat-card p-5">
+                <div className="font-display font-extrabold text-3xl text-gradient-amber">{v}</div>
+                <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider mt-1">{l}</div>
               </div>
             ))}
           </div>
 
-          <div className="flex items-center gap-2 mt-8 text-xs font-mono text-slate-600">
+          <div className="flex items-center gap-2 mt-8 text-sm text-[var(--text-muted)]">
             <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-orange-500">Projects</span>
+            <span className="text-orange-500 font-medium">Projects</span>
           </div>
         </div>
       </section>
@@ -297,29 +285,24 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-[#0a0e17] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-display font-black text-4xl md:text-5xl text-white mb-6">
-            Add Your Project to Our{" "}
-            <span className="text-orange-500">Portfolio</span>
+      {/* CTA — bright orange */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
+        <div className="absolute inset-0 dots-bg opacity-20 text-white" />
+        <div className="blob bg-white/10 w-96 h-96 -bottom-20 -left-10" />
+        <div className="relative max-w-3xl mx-auto px-6 text-center text-white">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-6 leading-tight">
+            Add your project to our portfolio
           </h2>
-          <p className="text-slate-400 leading-relaxed mb-10">
-            Join our growing list of satisfied clients who have benefited from 
-            Notynox Engineering's professional delivery, technical expertise, and 
+          <p className="text-white/90 leading-relaxed mb-9 max-w-2xl mx-auto">
+            Join our growing list of satisfied clients who have benefited from
+            Notynox Engineering's professional delivery, technical expertise, and
             commitment to quality construction.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="btn-primary text-base px-8 py-4">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-orange-600 font-semibold rounded-xl shadow-lg hover:-translate-y-0.5 transition-all">
               Start a Conversation <ArrowRight size={16} />
             </Link>
-            <a href="tel:+254720843234" className="inline-flex items-center gap-2 px-8 py-4 border border-slate-600 hover:border-orange-500 text-slate-300 hover:text-orange-400 font-semibold rounded-sm transition-all text-base">
+            <a href="tel:+254720843234" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/70 text-white font-semibold rounded-xl hover:bg-white/10 transition-all">
               <Phone size={16} /> +254 720 843 234
             </a>
           </div>

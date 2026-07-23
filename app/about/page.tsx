@@ -83,41 +83,37 @@ const timeline = [
 export default function About() {
   return (
     <>
-      {/* Page Hero */}
-      <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
-        <img
-          src="/images/about-team.jpg"
-          alt="Notynox Engineering team"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/8 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <div className="section-label mb-4 text-orange-400">About Notynox</div>
-            <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
+      {/* Page Hero — bright */}
+      <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+        <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
+        <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="absolute inset-0 dots-bg opacity-50" />
+        <div className="container-x relative pt-20 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="eyebrow mb-5">About Notynox</span>
+            <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
               Engineering{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Excellence
-              </span>{" "}
-              Since 2013
+              <span className="text-gradient-amber">excellence</span> since 2013
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-              From a focused civil engineering practice to East Africa's trusted 
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-xl mb-6">
+              From a focused civil engineering practice to East Africa's trusted
               full-spectrum construction and infrastructure company — this is our story.
             </p>
+            <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+              <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-orange-500 font-medium">About</span>
+            </div>
           </div>
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 mt-10 text-xs font-mono text-slate-600">
-            <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-orange-500">About</span>
+          <div className="relative">
+            <div className="blob bg-orange-500/20 w-64 h-64 -bottom-8 -right-6" />
+            <div className="relative rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-elevated)] aspect-[4/3]">
+              <img
+                src="/images/about-team.jpg"
+                alt="Notynox Engineering team on site"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -281,24 +277,19 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-24 bg-[#0a0e17] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
+      {/* Timeline — bright */}
+      <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+        <div className="absolute inset-0 dots-bg opacity-40" />
         <div className="relative max-w-4xl mx-auto px-6">
           <div className="text-center mb-14">
-            <div className="section-label mb-3 text-orange-400">Our Journey</div>
-            <h2 className="font-display font-bold text-4xl text-white">
-              Building <span className="text-orange-500">Milestones</span>
+            <span className="eyebrow mb-3">Our Journey</span>
+            <h2 className="font-display font-bold text-4xl text-[var(--text-primary)] mt-3">
+              Building <span className="text-gradient-amber">milestones</span>
             </h2>
           </div>
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-16 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-600/40 to-transparent -translate-x-1/2" />
+            <div className="absolute left-16 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-500/40 to-transparent -translate-x-1/2" />
 
             <div className="space-y-8">
               {timeline.map(({ year, event }, i) => (
@@ -311,19 +302,19 @@ export default function About() {
                   {/* Content */}
                   <div className="flex-1 pl-24 sm:pl-0">
                     <div
-                      className={`bg-slate-800/60 border border-slate-700/50 p-5 rounded-sm hover:border-orange-500/40 transition-colors ${
+                      className={`neat-card p-5 ${
                         i % 2 === 0 ? "sm:mr-8 sm:ml-0" : "sm:ml-8 sm:mr-0"
                       }`}
                     >
-                      <div className="font-mono text-orange-500 text-xs tracking-wider mb-2">
+                      <div className="font-semibold text-orange-600 text-sm tracking-wider mb-2">
                         {year}
                       </div>
-                      <p className="text-slate-300 text-sm leading-relaxed">{event}</p>
+                      <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{event}</p>
                     </div>
                   </div>
 
                   {/* Center dot */}
-                  <div className="absolute left-14 sm:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-orange-600 border-4 border-[#0a0e17] flex-shrink-0 z-10" />
+                  <div className="absolute left-14 sm:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-orange-500 border-4 border-[var(--bg-secondary)] flex-shrink-0 z-10 shadow-[var(--shadow-orange)]" />
                 </div>
               ))}
             </div>

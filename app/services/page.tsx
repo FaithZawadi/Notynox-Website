@@ -10,7 +10,6 @@ import {
   HardHat,
   CheckCircle2,
   Phone,
-  ChevronRight,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -151,53 +150,40 @@ const services = [
 export default function Services() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
-        <img
-          src="/images/service-building.jpg"
-          alt="Notynox Engineering construction works"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-600/8 via-transparent to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6">
+      {/* Hero — bright */}
+      <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+        <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
+        <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="absolute inset-0 dots-bg opacity-50" />
+        <div className="container-x relative pt-20 pb-16">
           <div className="max-w-3xl">
-            <div className="section-label mb-4 text-orange-400">What We Offer</div>
-            <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
+            <span className="eyebrow mb-5">What We Offer</span>
+            <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
               Engineering{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Services
-              </span>
+              <span className="text-gradient-amber">services</span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-              Comprehensive construction and engineering solutions tailored to Kenya's 
-              infrastructure needs — delivered by an experienced, safety-first team with 
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl">
+              Comprehensive construction and engineering solutions tailored to Kenya's
+              infrastructure needs — delivered by an experienced, safety-first team with
               proven project management systems.
             </p>
           </div>
           {/* Quick nav */}
-          <div className="flex flex-wrap gap-2 mt-10">
+          <div className="flex flex-wrap gap-2.5 mt-8">
             {services.map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono border border-slate-700 text-slate-400 hover:border-orange-500 hover:text-orange-400 transition-all rounded-sm"
+                className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-secondary)] hover:border-orange-500 hover:text-orange-600 transition-all"
               >
-                <ChevronRight size={10} />
                 {s.title.split(" ")[0]}
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-2 mt-6 text-xs font-mono text-slate-600">
+          <div className="flex items-center gap-2 mt-7 text-sm text-[var(--text-muted)]">
             <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-orange-500">Services</span>
+            <span className="text-orange-500 font-medium">Services</span>
           </div>
         </div>
       </section>
@@ -272,29 +258,26 @@ export default function Services() {
         );
       })}
 
-      {/* CTA */}
-      <section className="py-20 bg-[#0a0e17] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <div className="section-label mb-4 text-orange-400">Ready to Start?</div>
-          <h2 className="font-display font-black text-4xl md:text-5xl text-white mb-6">
-            Let's Discuss Your{" "}
-            <span className="text-orange-500">Project</span>
+      {/* CTA — bright orange */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
+        <div className="absolute inset-0 dots-bg opacity-20 text-white" />
+        <div className="blob bg-white/10 w-96 h-96 -top-20 -right-10" />
+        <div className="relative max-w-3xl mx-auto px-6 text-center text-white">
+          <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] bg-white/20 mb-5">
+            Ready to Start?
+          </span>
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-6 leading-tight">
+            Let's discuss your project
           </h2>
-          <p className="text-slate-400 leading-relaxed mb-10">
-            Our team is ready to provide professional consultation, accurate cost estimates, 
-            and a detailed project execution plan tailored to your specific requirements.
+          <p className="text-white/90 leading-relaxed mb-9 max-w-2xl mx-auto">
+            Our team is ready to provide professional consultation, accurate cost estimates,
+            and a detailed project execution plan tailored to your requirements.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="btn-primary text-base px-8 py-4">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-orange-600 font-semibold rounded-xl shadow-lg hover:-translate-y-0.5 transition-all">
               Get a Free Quote <ArrowRight size={16} />
             </Link>
-            <a href="tel:+254720843234" className="inline-flex items-center gap-2 px-8 py-4 border border-slate-600 hover:border-orange-500 text-slate-300 hover:text-orange-400 font-semibold rounded-sm transition-all text-base">
+            <a href="tel:+254720843234" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/70 text-white font-semibold rounded-xl hover:bg-white/10 transition-all">
               <Phone size={16} /> Call Us Now
             </a>
           </div>

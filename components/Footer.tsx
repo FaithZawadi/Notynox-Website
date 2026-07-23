@@ -62,11 +62,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-5">
-              <div className="bg-white rounded-sm p-4 inline-block">
+              <div className="bg-white rounded-xl p-5 inline-block shadow-[var(--shadow-card)]">
                 <img
-                  src="/images/notynox-logo.png"
+                  src="/images/logo-full.png"
                   alt="Notynox Engineering Limited"
-                  className="h-16 w-auto"
+                  className="h-20 w-auto"
                 />
               </div>
             </Link>

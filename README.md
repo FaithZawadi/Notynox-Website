@@ -86,22 +86,26 @@ notynox/
 
 ## 🎨 Design System
 
+A clean, spacious, modern agency aesthetic: generous whitespace, rounded cards with soft shadows, pill buttons, eyebrow labels, decorative orange "blobs" and dotted patterns, an animated stat counter, a client marquee, and testimonial cards. Default theme is **light**; a dark toggle is available.
+
+Reusable utility classes live in `app/globals.css`: `container-x`, `neat-card`, `eyebrow`, `icon-tile`, `blob`, `dots-bg`, `marquee`, `text-gradient-amber`, plus the `btn-primary` / `btn-outline` buttons. The count-up numbers use `components/Counter.tsx`.
+
 ### Colours
 - **Primary accent**: Orange (#ea580c / #f97316)
-- **Dark background**: #0a0e17
-- **Light background**: #fafaf8
-- CSS variables for seamless dark/light mode switching
+- **Light background**: #ffffff / #f6f8fb (default)
+- **Dark background**: #0a0e17 (dark mode + section heroes)
+- CSS variables + design tokens (`--radius`, `--shadow-card`, `--shadow-elevated`, `--shadow-orange`) drive seamless dark/light switching
 
 ### Typography
-- **Headings**: Playfair Display (serif, bold/black)
-- **Body**: DM Sans (clean, modern)
-- **Labels/mono**: DM Mono (technical details, tags)
+- **Headings**: Poppins (geometric sans, 600–800)
+- **Body**: Inter (clean, highly legible)
+- Bright, light-first theme with orange gradients and decorative "blob" + dotted-pattern graphics; page heroes are light and creative (no dark hero sections)
 
 ## 🌐 Pages
 
 | Page | Route | Description |
 |------|-------|-------------|
-| Home | `/` | Photographic hero, services, about strip, why us, sectors, fleet, CTA |
+| Home | `/` | Framed hero, client strip, services, about+features, animated stat band, process steps, sectors, testimonials, CTA |
 | About | `/about` | Company story, mission/vision, values, team, timeline |
 | Services | `/services` | All 6 service areas with photos + detailed descriptions |
 | Projects | `/projects` | Project case studies with category photos |
@@ -128,11 +132,12 @@ Replace all instances of `https://notynox.co.ke` with your actual domain in:
 - `app/robots.ts`
 - `components/StructuredData.tsx`
 
-### Connect the Contact Form
-The contact form in `app/contact/page.tsx` currently uses `mailto:`. For production, replace with:
-- [Resend](https://resend.com) API (recommended for Next.js)
-- [Formspree](https://formspree.io)
-- Custom API route at `app/api/contact/route.ts`
+### Contact form (works on cPanel out of the box)
+The form posts to **`public/contact.php`**, a PHP mail handler that ships with the build (it lands at the site root, `out/contact.php`). On success it redirects to `/contact/?sent=1` and `components/FormStatus.tsx` shows a confirmation banner (`?error=1` shows a fallback message). It includes basic validation and a honeypot anti-spam field.
+
+- Change the recipient by editing `$TO` at the top of `public/contact.php`.
+- Requires PHP + `mail()` on the host (standard on cPanel). If your host uses SMTP, swap the `mail()` call for PHPMailer.
+- Prefer a hosted service instead? Point the form `action` at [Formspree](https://formspree.io) and delete `contact.php`.
 
 ### Images
 Real construction photography and the company logo live in **`public/images/`** and are referenced with root-absolute paths (e.g. `/images/hero-construction.jpg`). To swap a photo, replace the file in `public/images/` keeping the same filename, then re-build. Because the site is a static export, images are served as-is (no Next.js image optimisation server is used).

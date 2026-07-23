@@ -59,23 +59,12 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-9 h-9 bg-orange-600 flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                <span className="text-white font-black text-sm -rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                  N
-                </span>
-              </div>
-              <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-orange-400 rounded-full opacity-80" />
-            </div>
-            <div>
-              <div className="font-display font-bold text-base leading-none text-[var(--text-primary)]">
-                NOTYNOX
-              </div>
-              <div className="text-[9px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] leading-tight mt-0.5">
-                Engineering Limited
-              </div>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <img
+              src="/images/logo-nav.png"
+              alt="Notynox Engineering Limited"
+              className="h-11 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-[1.03] dark:bg-white/95 dark:rounded-lg dark:px-2 dark:py-1"
+            />
           </Link>
 
           {/* Desktop Links */}
@@ -113,7 +102,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-sm transition-all duration-200 hover:shadow-lg hover:shadow-orange-600/20"
+              className="hidden md:flex items-center gap-1.5 px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-[var(--shadow-orange)] hover:-translate-y-0.5"
             >
               Get a Quote <ChevronRight size={13} />
             </Link>

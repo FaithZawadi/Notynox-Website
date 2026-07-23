@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FormStatus from "@/components/FormStatus";
 import {
   Phone,
   Mail,
@@ -61,40 +62,28 @@ const services = [
 export default function Contact() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
-        <img
-          src="/images/hero-construction.jpg"
-          alt="Notynox Engineering site"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-600/8 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6">
+      {/* Hero — bright */}
+      <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+        <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
+        <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="absolute inset-0 dots-bg opacity-50" />
+        <div className="container-x relative pt-20 pb-16">
           <div className="max-w-3xl">
-            <div className="section-label mb-4 text-orange-400">Let's Talk</div>
-            <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
+            <span className="eyebrow mb-5">Let's Talk</span>
+            <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
               Start a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Conversation
-              </span>
+              <span className="text-gradient-amber">conversation</span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-              Whether you're planning a major infrastructure project or need a specialist 
-              engineering service — our team is ready to provide professional consultation 
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl">
+              Whether you're planning a major infrastructure project or need a specialist
+              engineering service — our team is ready to provide professional consultation
               and competitive quotations.
             </p>
           </div>
-          <div className="flex items-center gap-2 mt-10 text-xs font-mono text-slate-600">
+          <div className="flex items-center gap-2 mt-7 text-sm text-[var(--text-muted)]">
             <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-orange-500">Contact</span>
+            <span className="text-orange-500 font-medium">Contact</span>
           </div>
         </div>
       </section>
@@ -148,26 +137,21 @@ export default function Contact() {
                 </div>
               ))}
 
-              {/* Map-like graphic */}
-              <div className="relative bg-[#0a0e17] border border-slate-800 rounded-sm p-6 overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.06]"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-                    backgroundSize: "20px 20px",
-                  }}
-                />
+              {/* Location card */}
+              <div className="relative rounded-2xl p-6 overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-[var(--shadow-orange)]">
+                <div className="absolute inset-0 dots-bg opacity-20 text-white" />
                 <div className="relative flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-600/15 border border-orange-600/30 flex items-center justify-center rounded-sm">
-                    <Building size={16} className="text-orange-500" />
+                  <div className="w-10 h-10 bg-white/20 flex items-center justify-center rounded-xl">
+                    <Building size={16} className="text-white" />
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">Notynox Engineering Limited</div>
-                    <div className="text-slate-500 text-xs mt-0.5 font-mono">Nairobi, Kenya · P.O. Box 11658-00100</div>
+                    <div className="font-semibold text-sm">Notynox Engineering Limited</div>
+                    <div className="text-white/80 text-xs mt-0.5">Nairobi, Kenya · P.O. Box 11658-00100</div>
                   </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-slate-800 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-                  <span className="text-xs text-slate-500 font-mono">Serving Kenya & East Africa</span>
+                <div className="relative mt-4 pt-4 border-t border-white/20 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
+                  <span className="text-xs text-white/85">Serving Kenya &amp; East Africa</span>
                 </div>
               </div>
             </div>
@@ -189,13 +173,18 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Note: this is a static form; connect to your preferred form handler */}
-                <form
-                  action="mailto:notynox.engineering@gmail.com"
-                  method="post"
-                  encType="text/plain"
-                  className="space-y-5"
-                >
+                {/* Submits to contact.php (PHP mail handler included for cPanel) */}
+                <FormStatus />
+                <form action="/contact.php" method="POST" className="space-y-5">
+                  {/* Honeypot anti-spam field — hidden from humans */}
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-mono uppercase tracking-wider text-[var(--text-muted)] mb-2">
