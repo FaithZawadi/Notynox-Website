@@ -525,36 +525,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─────────────────────────── CTA BAND ─────────────────────────── */}
-      <section className="relative py-24 overflow-hidden bg-[#0a0e17]">
-        <img
-          src="/images/service-equipment.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/90 to-[#0a0e17]/60" />
-        <div className="blob bg-orange-500/20 w-96 h-96 -bottom-20 right-10" />
-        <div className="container-x relative max-w-3xl">
-          <span className="eyebrow mb-5">Ready to Start?</span>
-          <h2 className="font-display font-black text-4xl md:text-6xl text-white leading-tight mb-6">
-            Have a project in{" "}
-            <span className="text-gradient-amber">mind?</span>
-          </h2>
-          <p className="text-slate-300 text-lg leading-relaxed mb-9 max-w-2xl">
-            Whether you're planning a major road development, a commercial
-            building or a water infrastructure project — our team is ready to
-            partner with you from concept to completion.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact" className="btn-primary">
-              Get a Free Consultation <ArrowRight size={16} />
-            </Link>
-            <a
-              href="tel:+254720843234"
-              className="btn-outline text-white border-white/30 hover:border-orange-600"
-            >
-              <Phone size={16} /> +254 720 843 234
-            </a>
+      {/* ─────────────────────────── CTA BAND — bright ─────────────────────────── */}
+      <section className="relative py-24 overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600">
+        <div className="absolute inset-0 dots-bg opacity-20 text-white" />
+        <div className="blob bg-white/10 w-[28rem] h-[28rem] -bottom-24 -right-10" />
+        <div className="blob bg-amber-300/20 w-80 h-80 -top-20 left-10" />
+        <div className="container-x relative">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div className="text-white">
+              <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em] bg-white/20 mb-5">
+                Ready to Start?
+              </span>
+              <h2 className="font-display font-extrabold text-4xl md:text-5xl leading-tight mb-5">
+                Have a project in mind?
+              </h2>
+              <p className="text-white/90 text-lg leading-relaxed max-w-xl">
+                Whether you're planning a major road development, a commercial
+                building or a water infrastructure project — our team is ready to
+                partner with you from concept to completion.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row lg:justify-end gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white text-orange-600 font-semibold rounded-xl shadow-lg hover:-translate-y-0.5 transition-all"
+              >
+                Get a Free Consultation <ArrowRight size={16} />
+              </Link>
+              <a
+                href="tel:+254720843234"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 border-2 border-white/70 text-white font-semibold rounded-xl hover:bg-white/10 transition-all"
+              >
+                <Phone size={16} /> +254 720 843 234
+              </a>
+            </div>
           </div>
         </div>
       </section>
