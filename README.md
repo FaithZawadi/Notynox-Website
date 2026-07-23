@@ -1,6 +1,8 @@
 # Notynox Engineering Limited — Website
 
-A modern, SEO-optimised Next.js 14 website for Notynox Engineering Limited, featuring dark/light mode, responsive design, and production-grade architecture.
+A modern, SEO-optimised Next.js 14 website for Notynox Engineering Limited, featuring real construction photography, the company brand logo, dark/light mode, responsive design, and production-grade architecture.
+
+The site is configured as a **static export** (`output: "export"`) so the build produces a plain folder of HTML/CSS/JS/images in `out/` that can be uploaded straight into a **cPanel `public_html`** directory — no Node.js server required. See **[Deploying to cPanel](#-deploying-to-cpanel)** below.
 
 ## 🚀 Tech Stack
 
@@ -28,12 +30,29 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Build for production
+### 3. Build the static site
 
 ```bash
 npm run build
-npm start
 ```
+
+This generates a ready-to-deploy static site in the **`out/`** folder.
+
+## 🌐 Deploying to cPanel
+
+The build output is completely static, so hosting it on cPanel shared hosting is simply a matter of uploading files.
+
+1. **Build** the site locally: `npm run build`
+2. Open **cPanel → File Manager** and go to your domain's document root (usually `public_html`).
+3. Upload **the contents of the `out/` folder** (not the folder itself) into `public_html`.
+   - Easiest way: zip the contents of `out/`, upload the zip, then **Extract** it inside `public_html`.
+   - Make sure the hidden **`.htaccess`** file (included in `out/`) is uploaded too — in File Manager enable *Settings → Show Hidden Files (dotfiles)*.
+4. Visit your domain — the site is live. Clean URLs like `/about/` and `/services/` work automatically.
+
+**Notes**
+- The included `.htaccess` sets a custom 404 page, gzip compression, caching, and security headers. To force HTTPS, uncomment the `RewriteRule` block inside it once your SSL certificate is active.
+- Whenever you change content, re-run `npm run build` and re-upload the `out/` folder.
+- Before going live, replace `https://notynox.co.ke` with your real domain (see [Customisation](#️-customisation)).
 
 ## 📁 Project Structure
 
@@ -51,13 +70,18 @@ notynox/
 │   └── robots.ts           # Robots.txt
 ├── components/
 │   ├── Navbar.tsx          # Sticky navbar with mobile menu
-│   ├── Footer.tsx          # Footer with CTA + links
+│   ├── Footer.tsx          # Footer with CTA + brand logo + links
 │   ├── ThemeProvider.tsx   # Dark/light mode provider
 │   ├── StructuredData.tsx  # JSON-LD for SEO
 │   └── ScrollAnimations.tsx # Intersection Observer animations
+├── public/
+│   ├── images/             # Construction photography + brand logo
+│   ├── .htaccess           # Apache/cPanel config (clean URLs, caching, headers)
+│   ├── apple-touch-icon.png
+│   └── og-image.jpg        # Social share image
 ├── tailwind.config.ts
 ├── tsconfig.json
-└── next.config.mjs
+└── next.config.mjs         # output: "export" for static/cPanel hosting
 ```
 
 ## 🎨 Design System
@@ -77,10 +101,10 @@ notynox/
 
 | Page | Route | Description |
 |------|-------|-------------|
-| Home | `/` | Hero, services overview, about strip, why us, fleet, CTA |
+| Home | `/` | Photographic hero, services, about strip, why us, sectors, fleet, CTA |
 | About | `/about` | Company story, mission/vision, values, team, timeline |
-| Services | `/services` | All 6 service areas with detailed descriptions |
-| Projects | `/projects` | 9 project case studies with filters |
+| Services | `/services` | All 6 service areas with photos + detailed descriptions |
+| Projects | `/projects` | Project case studies with category photos |
 | Contact | `/contact` | Contact form, info, business hours |
 
 ## 🔍 SEO Features
@@ -110,12 +134,8 @@ The contact form in `app/contact/page.tsx` currently uses `mailto:`. For product
 - [Formspree](https://formspree.io)
 - Custom API route at `app/api/contact/route.ts`
 
-### Add Real Images
-Replace the decorative grid/pattern areas in the components with actual project images using Next.js `Image` component:
-```tsx
-import Image from "next/image";
-<Image src="/images/project.jpg" alt="Project" fill className="object-cover" />
-```
+### Images
+Real construction photography and the company logo live in **`public/images/`** and are referenced with root-absolute paths (e.g. `/images/hero-construction.jpg`). To swap a photo, replace the file in `public/images/` keeping the same filename, then re-build. Because the site is a static export, images are served as-is (no Next.js image optimisation server is used).
 
 ## 📱 Responsive Breakpoints
 

@@ -116,11 +116,24 @@ const categoryColors: Record<string, string> = {
   "Water & Plumbing": "bg-cyan-600/10 text-cyan-400 border-cyan-600/20",
 };
 
+const categoryImages: Record<string, string> = {
+  "Road Works": "/images/service-roads.jpg",
+  "Building Construction": "/images/service-building.jpg",
+  "Civil & Structural": "/images/service-civil.jpg",
+  "Water & Plumbing": "/images/service-water.jpg",
+};
+
 export default function Projects() {
   return (
     <>
       {/* Hero */}
       <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
+        <img
+          src="/images/service-roads.jpg"
+          alt="Notynox Engineering infrastructure project"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
         <div className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
@@ -178,17 +191,16 @@ export default function Projects() {
                 className="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-sm overflow-hidden group"
               >
                 {/* Visual header */}
-                <div className="relative h-36 bg-[#0a0e17] overflow-hidden">
-                  <div
-                    className="absolute inset-0 opacity-[0.1]"
-                    style={{
-                      backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
-                      backgroundSize: "30px 30px",
-                    }}
+                <div className="relative h-44 bg-[#0a0e17] overflow-hidden">
+                  <img
+                    src={categoryImages[project.category] || "/images/hero-construction.jpg"}
+                    alt={project.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-[#0a0e17]/40 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-display font-black text-8xl text-orange-600/10 select-none group-hover:text-orange-600/15 transition-colors">
+                    <div className="font-display font-black text-7xl text-white/10 select-none group-hover:text-white/15 transition-colors">
                       {String(project.id).padStart(2, "0")}
                     </div>
                   </div>
