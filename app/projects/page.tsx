@@ -119,8 +119,8 @@ const categoryColors: Record<string, string> = {
 const categoryImages: Record<string, string> = {
   "Road Works": "/images/service-roads.jpg",
   "Building Construction": "/images/service-building.jpg",
-  "Civil & Structural": "/images/service-civil.jpg",
-  "Water & Plumbing": "/images/service-water.jpg",
+  "Civil & Structural": "/images/hero-construction.jpg",
+  "Water & Plumbing": "/images/about-team.jpg",
 };
 
 export default function Projects() {
@@ -130,6 +130,7 @@ export default function Projects() {
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
         <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="blob bg-blue-500/12 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-50" />
         <div className="container-x relative pt-20 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

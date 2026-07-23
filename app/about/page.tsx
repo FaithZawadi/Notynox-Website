@@ -87,6 +87,7 @@ export default function About() {
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
         <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="blob bg-blue-500/12 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-50" />
         <div className="container-x relative pt-20 pb-16 grid lg:grid-cols-2 gap-12 items-center">
           <div>

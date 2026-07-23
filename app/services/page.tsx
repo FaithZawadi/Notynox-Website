@@ -22,7 +22,7 @@ const services = [
   {
     id: "civil",
     icon: Building2,
-    img: "/images/service-civil.jpg",
+    img: "/images/hero-construction.jpg",
     title: "Civil & Structural Engineering",
     tagline: "Foundations That Last Generations",
     description:
@@ -85,7 +85,7 @@ const services = [
   {
     id: "water",
     icon: Waves,
-    img: "/images/service-water.jpg",
+    img: "/images/about-team.jpg",
     title: "Water & Plumbing Engineering",
     tagline: "Clean Water is Infrastructure Too",
     description:
@@ -154,6 +154,7 @@ export default function Services() {
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
         <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="blob bg-blue-500/12 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-50" />
         <div className="container-x relative pt-20 pb-16 grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -193,7 +194,7 @@ export default function Services() {
               <img src="/images/service-building.jpg" alt="Notynox construction works" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-10 -left-10 w-44 h-44 rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)] border-4 border-[var(--bg-primary)]">
-              <img src="/images/service-civil.jpg" alt="Civil engineering" className="w-full h-full object-cover" />
+              <img src="/images/hero-construction.jpg" alt="Civil engineering" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -top-5 -right-5 bg-orange-600 text-white rounded-2xl px-5 py-4 shadow-[var(--shadow-orange)]">
               <div className="font-display font-extrabold text-2xl leading-none">6</div>
