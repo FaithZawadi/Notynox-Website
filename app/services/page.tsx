@@ -22,7 +22,7 @@ const services = [
   {
     id: "civil",
     icon: Building2,
-    img: "/images/service-civil.jpg",
+    img: "/images/hero-construction.jpg",
     title: "Civil & Structural Engineering",
     tagline: "Foundations That Last Generations",
     description:
@@ -85,7 +85,7 @@ const services = [
   {
     id: "water",
     icon: Waves,
-    img: "/images/service-water.jpg",
+    img: "/images/about-team.jpg",
     title: "Water & Plumbing Engineering",
     tagline: "Clean Water is Infrastructure Too",
     description:
@@ -150,40 +150,56 @@ const services = [
 export default function Services() {
   return (
     <>
-      {/* Hero — bright */}
+      {/* Hero — bright, with image cluster */}
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
         <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="blob bg-blue-500/12 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-50" />
-        <div className="container-x relative pt-20 pb-16">
-          <div className="max-w-3xl">
+        <div className="container-x relative pt-20 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <span className="eyebrow mb-5">What We Offer</span>
             <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
               Engineering{" "}
               <span className="text-gradient-amber">services</span>
             </h1>
-            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl">
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-xl mb-6">
               Comprehensive construction and engineering solutions tailored to Kenya's
               infrastructure needs — delivered by an experienced, safety-first team with
               proven project management systems.
             </p>
+            {/* Quick nav */}
+            <div className="flex flex-wrap gap-2.5 mb-6">
+              {services.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-secondary)] hover:border-orange-500 hover:text-orange-600 transition-all"
+                >
+                  {s.title.split(" ")[0]}
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+              <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-orange-500 font-medium">Services</span>
+            </div>
           </div>
-          {/* Quick nav */}
-          <div className="flex flex-wrap gap-2.5 mt-8">
-            {services.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-secondary)] hover:border-orange-500 hover:text-orange-600 transition-all"
-              >
-                {s.title.split(" ")[0]}
-              </a>
-            ))}
-          </div>
-          <div className="flex items-center gap-2 mt-7 text-sm text-[var(--text-muted)]">
-            <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-orange-500 font-medium">Services</span>
+
+          {/* Image cluster */}
+          <div className="relative hidden lg:block">
+            <div className="blob bg-orange-500/20 w-64 h-64 -bottom-8 -right-6" />
+            <div className="relative rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-elevated)] aspect-[4/3]">
+              <img src="/images/service-building.jpg" alt="Notynox construction works" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-10 -left-10 w-44 h-44 rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)] border-4 border-[var(--bg-primary)]">
+              <img src="/images/hero-construction.jpg" alt="Civil engineering" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -top-5 -right-5 bg-orange-600 text-white rounded-2xl px-5 py-4 shadow-[var(--shadow-orange)]">
+              <div className="font-display font-extrabold text-2xl leading-none">6</div>
+              <div className="text-[11px] uppercase tracking-wider opacity-85 mt-1">Service Areas</div>
+            </div>
           </div>
         </div>
       </section>

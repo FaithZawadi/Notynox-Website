@@ -119,8 +119,8 @@ const categoryColors: Record<string, string> = {
 const categoryImages: Record<string, string> = {
   "Road Works": "/images/service-roads.jpg",
   "Building Construction": "/images/service-building.jpg",
-  "Civil & Structural": "/images/service-civil.jpg",
-  "Water & Plumbing": "/images/service-water.jpg",
+  "Civil & Structural": "/images/hero-construction.jpg",
+  "Water & Plumbing": "/images/about-team.jpg",
 };
 
 export default function Projects() {
@@ -130,23 +130,41 @@ export default function Projects() {
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
         <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="blob bg-blue-500/12 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-50" />
         <div className="container-x relative pt-20 pb-16">
-          <div className="max-w-3xl">
-            <span className="eyebrow mb-5">Our Portfolio</span>
-            <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
-              Projects &{" "}
-              <span className="text-gradient-amber">experience</span>
-            </h1>
-            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl">
-              A portfolio of successfully delivered infrastructure projects across Kenya
-              and East Africa — demonstrating technical capability, versatility, and a
-              commitment to quality.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="eyebrow mb-5">Our Portfolio</span>
+              <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
+                Projects &{" "}
+                <span className="text-gradient-amber">experience</span>
+              </h1>
+              <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-xl">
+                A portfolio of successfully delivered infrastructure projects across Kenya
+                and East Africa — demonstrating technical capability, versatility, and a
+                commitment to quality.
+              </p>
+            </div>
+
+            {/* Image cluster */}
+            <div className="relative hidden lg:block">
+              <div className="blob bg-orange-500/20 w-64 h-64 -top-8 -right-6" />
+              <div className="relative rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-elevated)] aspect-[4/3]">
+                <img src="/images/service-roads.jpg" alt="Road infrastructure project" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-44 h-44 rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)] border-4 border-[var(--bg-primary)]">
+                <img src="/images/service-building.jpg" alt="Building project" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute -top-5 -left-5 bg-orange-600 text-white rounded-2xl px-5 py-4 shadow-[var(--shadow-orange)]">
+                <div className="font-display font-extrabold text-2xl leading-none">50+</div>
+                <div className="text-[11px] uppercase tracking-wider opacity-85 mt-1">Delivered</div>
+              </div>
+            </div>
           </div>
 
           {/* Quick stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-14">
             {[
               { v: "50+", l: "Projects Completed" },
               { v: "10+", l: "Years Experience" },

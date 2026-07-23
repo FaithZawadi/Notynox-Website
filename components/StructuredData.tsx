@@ -3,8 +3,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Notynox Engineering Limited",
-    url: "https://notynox.co.ke",
-    logo: "https://notynox.co.ke/logo.png",
+    url: "https://notynox.com",
+    logo: "https://notynox.com/images/logo-full.png",
     description:
       "Leading civil engineering and construction company in Nairobi, Kenya. Specialists in road construction, structural engineering, building development, and water infrastructure.",
     foundingDate: "2013",
@@ -36,9 +36,9 @@ export default function StructuredData() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://notynox.co.ke",
+    "@id": "https://notynox.com",
     name: "Notynox Engineering Limited",
-    image: "https://notynox.co.ke/og-image.jpg",
+    image: "https://notynox.com/og-image.jpg",
     priceRange: "KSh KSh KSh",
     telephone: "+254720843234",
     email: "notynox.engineering@gmail.com",

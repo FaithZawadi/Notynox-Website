@@ -39,7 +39,7 @@ const services = [
       "Reinforced concrete works, structural steel, bridges, dams, culverts and large-scale infrastructure — built to withstand the test of time.",
     href: "/services#civil",
     tag: "Core Service",
-    img: "/images/service-civil.jpg",
+    img: "/images/hero-construction.jpg",
   },
   {
     icon: Milestone,
@@ -66,7 +66,7 @@ const services = [
       "Sewer systems, water reticulation, tank installations, rainwater harvesting, fire service installations and leak detection solutions.",
     href: "/services#water",
     tag: "Specialist",
-    img: "/images/service-water.jpg",
+    img: "/images/about-team.jpg",
   },
   {
     icon: Wrench,
@@ -165,7 +165,8 @@ export default function Home() {
       {/* ─────────────────────────── HERO ─────────────────────────── */}
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[32rem] h-[32rem] -top-40 -right-40" />
-        <div className="blob bg-orange-400/10 w-[28rem] h-[28rem] top-40 -left-40" />
+        <div className="blob bg-blue-500/15 w-[26rem] h-[26rem] top-32 -left-40" />
+        <div className="blob bg-amber-300/20 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-60" />
 
         <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center pt-16 pb-20 lg:pt-24 lg:pb-28">
@@ -414,13 +415,13 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────── PROCESS ─────────────────────────── */}
-      <section className="py-24 bg-[var(--bg-primary)]">
+      <section className="py-24 section-tint-blue">
         <div className="container-x">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="eyebrow mb-4">How We Work</span>
+            <span className="eyebrow-blue mb-4">How We Work</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-4">
               A clear path from{" "}
-              <span className="text-gradient-amber">concept to completion</span>
+              <span className="text-gradient-blue">concept to completion</span>
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               A disciplined, transparent process that keeps every project safe,
@@ -433,10 +434,10 @@ export default function Home() {
               const Icon = p.icon;
               return (
                 <div key={p.step} className="neat-card p-7 relative">
-                  <span className="absolute top-5 right-6 font-display font-black text-5xl text-orange-500/10">
+                  <span className="absolute top-5 right-6 font-display font-black text-5xl text-blue-600/10">
                     {p.step}
                   </span>
-                  <div className="icon-tile mb-5">
+                  <div className="icon-tile-blue mb-5">
                     <Icon size={22} />
                   </div>
                   <h3 className="font-display font-bold text-lg text-[var(--text-primary)] mb-2">
@@ -476,7 +477,11 @@ export default function Home() {
                 key={sector}
                 className="neat-card flex items-center gap-4 p-5"
               >
-                <span className="font-display font-black text-3xl text-orange-500/80 leading-none">
+                <span
+                  className={`font-display font-black text-3xl leading-none ${
+                    i % 2 === 0 ? "text-orange-500/80" : "text-blue-600/80"
+                  }`}
+                >
                   0{i + 1}
                 </span>
                 <span className="text-sm font-semibold text-[var(--text-primary)]">

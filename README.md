@@ -11,7 +11,7 @@ The site is configured as a **static export** (`output: "export"`) so the build 
 - **Styling**: Tailwind CSS
 - **Dark Mode**: `next-themes`
 - **Animations**: CSS animations + Intersection Observer
-- **Fonts**: Playfair Display (display) + DM Sans (body) + DM Mono (mono)
+- **Fonts**: Poppins (headings) + Inter (body)
 - **SEO**: Next.js Metadata API, sitemap.xml, robots.txt, JSON-LD structured data
 
 ## 📦 Setup
@@ -52,7 +52,7 @@ The build output is completely static, so hosting it on cPanel shared hosting is
 **Notes**
 - The included `.htaccess` sets a custom 404 page, gzip compression, caching, and security headers. To force HTTPS, uncomment the `RewriteRule` block inside it once your SSL certificate is active.
 - Whenever you change content, re-run `npm run build` and re-upload the `out/` folder.
-- Before going live, replace `https://notynox.co.ke` with your real domain (see [Customisation](#️-customisation)).
+- Before going live, replace `https://notynox.com` with your real domain (see [Customisation](#️-customisation)).
 
 ## 📁 Project Structure
 
@@ -126,7 +126,7 @@ Reusable utility classes live in `app/globals.css`: `container-x`, `neat-card`, 
 Edit `components/Footer.tsx` and `app/contact/page.tsx`
 
 ### Update Domain
-Replace all instances of `https://notynox.co.ke` with your actual domain in:
+Replace all instances of `https://notynox.com` with your actual domain in:
 - `app/layout.tsx`
 - `app/sitemap.ts`
 - `app/robots.ts`
@@ -152,9 +152,9 @@ All pages are fully responsive and tested across breakpoints.
 
 ## 🌙 Dark / Light Mode
 
-Default theme is **dark**. Users can toggle via the navbar button. Theme persists via `localStorage` through `next-themes`.
+Default theme is **light**. Users can toggle via the navbar button. Theme persists via `localStorage` through `next-themes`.
 
 To change the default, edit `components/ThemeProvider.tsx`:
 ```tsx
-defaultTheme="light"  // change from "dark"
+defaultTheme="dark"  // change from "light"
 ```

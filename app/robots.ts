@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://notynox.co.ke/sitemap.xml",
+    sitemap: "https://notynox.com/sitemap.xml",
   };
 }

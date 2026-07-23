@@ -22,6 +22,10 @@
   --accent-glow: rgba(234, 88, 12, 0.15);
   --hero-overlay: rgba(15, 23, 42, 0.72);
 
+  /* Secondary accent — vivid steel blue, complements the orange for contrast */
+  --accent-2: #2563eb;
+  --accent-2-glow: rgba(37, 99, 235, 0.14);
+
   /* Neat design tokens */
   --radius: 1rem;
   --radius-lg: 1.5rem;
@@ -314,4 +318,42 @@ body::before {
   font-family: var(--font-display);
   font-weight: 900;
   line-height: 1;
+}
+
+/* ---- Secondary (blue) accents for colour contrast ---- */
+.eyebrow-blue {
+  @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.18em];
+  color: var(--accent-2);
+  background: rgba(37, 99, 235, 0.09);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.icon-tile-blue {
+  @apply inline-flex items-center justify-center rounded-2xl;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: var(--accent-2);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(37, 99, 235, 0.09));
+  border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+.text-gradient-blue {
+  background: linear-gradient(120deg, #3b82f6, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Soft tinted section backgrounds for colour rhythm */
+.section-tint-blue {
+  background:
+    radial-gradient(60rem 30rem at 10% -10%, rgba(37, 99, 235, 0.08), transparent 60%),
+    radial-gradient(50rem 30rem at 100% 110%, rgba(37, 99, 235, 0.06), transparent 60%),
+    var(--bg-primary);
+}
+.section-tint-orange {
+  background:
+    radial-gradient(60rem 30rem at 0% 0%, rgba(249, 115, 22, 0.1), transparent 60%),
+    radial-gradient(50rem 30rem at 100% 100%, rgba(234, 88, 12, 0.07), transparent 60%),
+    var(--bg-primary);
 }

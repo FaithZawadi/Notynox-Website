@@ -66,24 +66,40 @@ export default function Contact() {
       <section className="relative overflow-hidden bg-[var(--bg-primary)]">
         <div className="blob bg-orange-500/20 w-[30rem] h-[30rem] -top-40 -right-40" />
         <div className="blob bg-amber-300/25 w-96 h-96 top-16 -left-32" />
+        <div className="blob bg-blue-500/12 w-80 h-80 bottom-0 right-1/4" />
         <div className="absolute inset-0 dots-bg opacity-50" />
-        <div className="container-x relative pt-20 pb-16">
-          <div className="max-w-3xl">
+        <div className="container-x relative pt-20 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <span className="eyebrow mb-5">Let's Talk</span>
             <h1 className="font-display font-extrabold text-[var(--text-primary)] leading-[1.05] text-4xl md:text-5xl xl:text-6xl mb-5">
               Start a{" "}
               <span className="text-gradient-amber">conversation</span>
             </h1>
-            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl">
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-xl mb-6">
               Whether you're planning a major infrastructure project or need a specialist
               engineering service — our team is ready to provide professional consultation
               and competitive quotations.
             </p>
+            <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+              <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-orange-500 font-medium">Contact</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 mt-7 text-sm text-[var(--text-muted)]">
-            <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-orange-500 font-medium">Contact</span>
+
+          {/* Image cluster */}
+          <div className="relative hidden lg:block">
+            <div className="blob bg-orange-500/20 w-64 h-64 -bottom-8 -left-6" />
+            <div className="relative rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-elevated)] aspect-[4/3]">
+              <img src="/images/hero-construction.jpg" alt="Notynox Engineering site" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-10 -right-10 w-44 h-44 rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)] border-4 border-[var(--bg-primary)]">
+              <img src="/images/about-team.jpg" alt="Notynox team" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -top-5 -left-5 bg-orange-600 text-white rounded-2xl px-5 py-4 shadow-[var(--shadow-orange)]">
+              <div className="font-display font-extrabold text-2xl leading-none">1</div>
+              <div className="text-[11px] uppercase tracking-wider opacity-85 mt-1">Day Response</div>
+            </div>
           </div>
         </div>
       </section>
