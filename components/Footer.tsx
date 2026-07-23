@@ -61,21 +61,26 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-orange-600 flex items-center justify-center rotate-12">
-                <span className="text-white font-black -rotate-12">N</span>
-              </div>
-              <div>
-                <div className="font-display font-bold text-lg text-[var(--text-primary)]">NOTYNOX</div>
-                <div className="text-[9px] font-mono tracking-widest uppercase text-[var(--text-muted)]">
-                  Engineering Limited
-                </div>
+            <Link href="/" className="inline-block mb-5">
+              <div className="bg-white rounded-sm p-4 inline-block">
+                <img
+                  src="/images/notynox-logo.png"
+                  alt="Notynox Engineering Limited"
+                  className="h-16 w-auto"
+                />
               </div>
             </Link>
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">
-              Incorporated in 2013, Notynox Engineering delivers world-class civil 
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
+              Incorporated in 2013, Notynox Engineering delivers world-class civil
               engineering and construction solutions across Kenya and East Africa.
             </p>
+            <div className="flex items-center gap-2 mb-6 text-[10px] font-mono uppercase tracking-[0.2em] text-orange-500">
+              <span>Conceive</span>
+              <span className="text-[var(--text-muted)]">·</span>
+              <span>Believe</span>
+              <span className="text-[var(--text-muted)]">·</span>
+              <span>Achieve</span>
+            </div>
             <div className="flex items-center gap-1 mb-2">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-xs font-mono text-[var(--text-muted)]">Est. September 2013 · Nairobi, Kenya</span>
