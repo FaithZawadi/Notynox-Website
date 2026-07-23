@@ -23,6 +23,7 @@ const services = [
   {
     id: "civil",
     icon: Building2,
+    img: "/images/service-civil.jpg",
     title: "Civil & Structural Engineering",
     tagline: "Foundations That Last Generations",
     description:
@@ -43,6 +44,7 @@ const services = [
   {
     id: "roads",
     icon: Milestone,
+    img: "/images/service-roads.jpg",
     title: "Road Works & Infrastructure",
     tagline: "Connecting Communities, Enabling Commerce",
     description:
@@ -63,6 +65,7 @@ const services = [
   {
     id: "building",
     icon: Hammer,
+    img: "/images/service-building.jpg",
     title: "Building Construction",
     tagline: "Spaces That Inspire, Structures That Endure",
     description:
@@ -83,6 +86,7 @@ const services = [
   {
     id: "water",
     icon: Waves,
+    img: "/images/service-water.jpg",
     title: "Water & Plumbing Engineering",
     tagline: "Clean Water is Infrastructure Too",
     description:
@@ -103,6 +107,7 @@ const services = [
   {
     id: "scaffolding",
     icon: Wrench,
+    img: "/images/service-scaffolding.jpg",
     title: "Scaffolding Solutions",
     tagline: "Working at Height — Safely and Surely",
     description:
@@ -123,6 +128,7 @@ const services = [
   {
     id: "equipment",
     icon: HardHat,
+    img: "/images/service-equipment.jpg",
     title: "Heavy Equipment Services",
     tagline: "Power, Precision, Performance",
     description:
@@ -147,6 +153,12 @@ export default function Services() {
     <>
       {/* Hero */}
       <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
+        <img
+          src="/images/service-building.jpg"
+          alt="Notynox Engineering construction works"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
         <div className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",
@@ -223,6 +235,15 @@ export default function Services() {
 
                 {/* Offerings */}
                 <div className={!isEven ? "lg:order-1" : ""}>
+                  <div className="relative mb-6 rounded-sm overflow-hidden aspect-[16/9]">
+                    <img
+                      src={svc.img}
+                      alt={svc.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </div>
                   <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-sm p-7">
                     <div className="flex items-center gap-3 mb-6 pb-5 border-b border-[var(--border)]">
                       <div className="w-12 h-12 bg-orange-600/10 border border-orange-600/20 flex items-center justify-center rounded-sm">

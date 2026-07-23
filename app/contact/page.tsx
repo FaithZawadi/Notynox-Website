@@ -63,6 +63,12 @@ export default function Contact() {
     <>
       {/* Hero */}
       <section className="relative py-24 bg-[#0a0e17] overflow-hidden">
+        <img
+          src="/images/hero-construction.jpg"
+          alt="Notynox Engineering site"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 to-[#0a0e17]/60" />
         <div className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: "linear-gradient(rgba(249,115,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.5) 1px, transparent 1px)",

@@ -38,6 +38,7 @@ const services = [
       "Reinforced concrete works, structural steel, bridges, dams, culverts, and large-scale infrastructure — built with precision to withstand the test of time.",
     href: "/services#civil",
     tag: "Core Service",
+    img: "/images/service-civil.jpg",
   },
   {
     icon: Milestone,
@@ -46,6 +47,7 @@ const services = [
       "Highway construction, asphalt paving, earthworks, grading, aggregate production, and road rehabilitation across Kenya's diverse terrain.",
     href: "/services#roads",
     tag: "Core Service",
+    img: "/images/service-roads.jpg",
   },
   {
     icon: Hammer,
@@ -54,6 +56,7 @@ const services = [
       "Commercial offices, warehouses, industrial facilities, institutional buildings, and residential housing — delivered on time and within budget.",
     href: "/services#building",
     tag: "Core Service",
+    img: "/images/service-building.jpg",
   },
   {
     icon: Waves,
@@ -62,6 +65,7 @@ const services = [
       "Sewer systems, water reticulation, tank installations, rainwater harvesting, fire service installations, and leak detection solutions.",
     href: "/services#water",
     tag: "Specialist",
+    img: "/images/service-water.jpg",
   },
   {
     icon: Wrench,
@@ -70,6 +74,7 @@ const services = [
       "Certified design, erection, inspection, and dismantling. Access, hanging, and birdcage scaffolds with strict HSE compliance at every level.",
     href: "/services#scaffolding",
     tag: "Specialist",
+    img: "/images/service-scaffolding.jpg",
   },
   {
     icon: HardHat,
@@ -78,7 +83,17 @@ const services = [
       "Excavators, dozers, graders, rollers, bitumen distributors, crushing units, and hauling trucks available for hire across East Africa.",
     href: "/services#equipment",
     tag: "Support Service",
+    img: "/images/service-equipment.jpg",
   },
+];
+
+const sectors = [
+  "Transport & Highways",
+  "Commercial & Institutional",
+  "Water & Sanitation",
+  "Industrial & Energy",
+  "Public Infrastructure",
+  "Residential Estates",
 ];
 
 const values = [
@@ -104,6 +119,16 @@ export default function Home() {
     <>
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0a0e17]">
+        {/* Photographic background */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/hero-construction.jpg"
+            alt="Notynox Engineering construction site"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17]/95 via-[#0a0e17]/85 to-[#0a0e17]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-[#0a0e17]/40" />
+        </div>
         {/* Atmospheric background */}
         <div className="absolute inset-0">
           {/* Grid overlay */}
@@ -223,29 +248,37 @@ export default function Home() {
                 <Link
                   key={svc.title}
                   href={svc.href}
-                  className="group card-hover relative bg-[var(--bg-card)] border border-[var(--border)] p-7 flex flex-col rounded-sm"
+                  className="group card-hover relative bg-[var(--bg-card)] border border-[var(--border)] flex flex-col rounded-sm overflow-hidden"
                   style={{ animationDelay: `${i * 0.08}s` }}
                 >
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-orange-600/5 group-hover:bg-orange-600/10 transition-colors" />
-                  <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-orange-500/30 group-hover:border-orange-500 transition-colors" />
-
-                  <div className="flex items-start justify-between mb-5">
-                    <div className="w-12 h-12 bg-orange-600/10 border border-orange-600/20 flex items-center justify-center group-hover:bg-orange-600/20 transition-colors rounded-sm">
-                      <Icon size={20} className="text-orange-500" />
+                  {/* Photo header */}
+                  <div className="relative aspect-[5/3] overflow-hidden">
+                    <img
+                      src={svc.img}
+                      alt={svc.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    <span className="absolute top-3 right-3 tag text-[10px] bg-black/40 backdrop-blur text-orange-300 border-orange-400/30">
+                      {svc.tag}
+                    </span>
+                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-orange-600 flex items-center justify-center rounded-sm shadow-lg">
+                      <Icon size={18} className="text-white" />
                     </div>
-                    <span className="tag text-[10px]">{svc.tag}</span>
                   </div>
 
-                  <h3 className="font-display font-semibold text-lg text-[var(--text-primary)] mb-3 group-hover:text-orange-500 transition-colors leading-snug">
-                    {svc.title}
-                  </h3>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed flex-1">
-                    {svc.description}
-                  </p>
+                  <div className="p-7 flex flex-col flex-1">
+                    <h3 className="font-display font-semibold text-lg text-[var(--text-primary)] mb-3 group-hover:text-orange-500 transition-colors leading-snug">
+                      {svc.title}
+                    </h3>
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed flex-1">
+                      {svc.description}
+                    </p>
 
-                  <div className="flex items-center gap-1.5 mt-5 text-orange-500 text-xs font-semibold group-hover:gap-3 transition-all">
-                    Learn more <ArrowRight size={12} />
+                    <div className="flex items-center gap-1.5 mt-5 text-orange-500 text-xs font-semibold group-hover:gap-3 transition-all">
+                      Learn more <ArrowRight size={12} />
+                    </div>
                   </div>
                 </Link>
               );
@@ -319,17 +352,13 @@ export default function Home() {
             <div className="relative">
               {/* Main box */}
               <div className="relative bg-[#0a0e17] rounded-sm overflow-hidden aspect-[4/3]">
-                <div className="absolute inset-0 grid-bg opacity-30" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="font-display font-black text-[120px] leading-none text-orange-600/10 select-none">
-                      N
-                    </div>
-                    <div className="font-mono text-orange-500/40 text-xs tracking-[0.4em] uppercase -mt-6">
-                      Engineering Excellence
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src="/images/about-team.jpg"
+                  alt="Notynox Engineering team on site"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-[#0a0e17]/30 to-transparent" />
                 {/* Corner decorations */}
                 <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/50" />
                 <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-orange-500/50" />
@@ -428,6 +457,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── SECTORS ── */}
+      <section className="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+        <div className="absolute inset-0 grid-bg opacity-30" />
+        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5">
+            <div className="section-label mb-3">Our Sectors</div>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[var(--text-primary)] leading-tight mb-5">
+              Solutions across{" "}
+              <span className="text-orange-500">every industry</span>
+            </h2>
+            <div className="accent-line mb-6" />
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
+              From transport and highways to water and sanitation, commercial developments
+              to public infrastructure — our experience spans the full breadth of East
+              Africa's growth sectors.
+            </p>
+            <Link href="/contact" className="btn-primary">
+              Discuss Your Sector <ArrowRight size={15} />
+            </Link>
+          </div>
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {sectors.map((sector, i) => (
+              <div
+                key={sector}
+                className="flex items-center gap-4 p-5 bg-[var(--bg-card)] border border-[var(--border)] rounded-sm hover:border-orange-500/40 transition-colors"
+              >
+                <span className="font-display font-black text-3xl text-orange-500/80 leading-none">
+                  0{i + 1}
+                </span>
+                <span className="text-sm font-semibold text-[var(--text-primary)]">
+                  {sector}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── EQUIPMENT FLEET ── */}
       <section className="py-20 bg-[#0a0e17] relative overflow-hidden">
         <div
@@ -450,6 +517,20 @@ export default function Home() {
               timelines, quality, and efficiency — reducing dependency on subcontractors 
               and external hire costs.
             </p>
+          </div>
+
+          <div className="relative mb-8 rounded-sm overflow-hidden aspect-[16/6]">
+            <img
+              src="/images/service-equipment.jpg"
+              alt="Notynox Engineering heavy equipment fleet"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/40 to-transparent" />
+            <div className="absolute bottom-4 left-6 bg-orange-600 text-white px-4 py-2 rounded-sm shadow-lg">
+              <span className="font-display font-black text-2xl leading-none">12+</span>
+              <span className="ml-2 text-xs font-mono uppercase tracking-wider">Machinery Classes</span>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
